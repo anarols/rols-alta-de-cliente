@@ -36,6 +36,12 @@
  .regSteps .t2{font-size:22px}
  .regSteps .s{display:block}
 }
+/* móvil y tablet: sin fila de pasos, barra de progreso bajo el título del paso (opción 1) */
+@media(max-width:1023px){
+ .regSteps{display:none}
+ .stepHead::after{content:"";display:block;height:2px;margin-top:6px;background:linear-gradient(to right,var(--accent-deep) var(--pg),color-mix(in srgb,var(--foreground) 14%,transparent) var(--pg))}
+ .step[data-step="0"]{--pg:33.333%}.step[data-step="1"]{--pg:66.666%}.step[data-step="2"]{--pg:100%}
+}
 .regPanel{background:var(--surface);border-radius:16px;padding:28px 20px 32px}
 @media(min-width:768px){.regPanel{padding:36px 40px 32px}}
 @media(min-width:1280px){.regPanel{padding:40px 56px 36px}}
@@ -93,6 +99,9 @@
 .cta.nc b{font:300 22px/1.1 var(--font-league-spartan);letter-spacing:-.01em}
 .cta.nc svg{width:18px;height:18px;margin-bottom:2px}
 .cta.nc:hover{gap:22px}
+.cta.nc .ns{display:none}
+/* móvil: solo «Anterior» y «Siguiente» */
+@media(max-width:767px){.cta.nc small{display:none}.cta.nc .nl{display:none}.cta.nc .ns{display:inline}}
 
 .fld{position:relative}
 .comboBox,.addrBox{position:relative}
@@ -5743,7 +5752,7 @@ body{font-family:var(--font-sans)}</style><meta charSet="utf-8"/><meta name="vie
     <div class="fld pick c6" data-pick><span class="lab" id="lab-equivalencia">Indicar si aplica recargo de equivalencia<span class="req" aria-hidden="true">*</span></span><button type="button" class="pickBtn" id="f-equivalencia" aria-haspopup="listbox" aria-labelledby="lab-equivalencia f-equivalencia" data-required><span class="pickVal">Selecciona</span><span class="chev" aria-hidden="true"></span></button><ul class="comboList" id="lb-equivalencia" role="listbox" tabindex="-1" hidden><li role="option" data-v="Sí">Sí</li><li role="option" data-v="No">No</li></ul><input type="hidden" name="equivalencia" data-obj="0-1"><span class="err" aria-live="polite"></span></div>
     <input type="hidden" name="hs_lead_status" data-obj="0-1" value="En proceso - Ha rellenado ficha alta cliente">
   </div>
-  <div class="navRow"><span></span><button type="button" class="cta nc" data-next><span class="nx"><small>Siguiente paso</small><b>Datos de envío</b></span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="9 6 15 12 9 18"></polyline></svg></button></div>
+  <div class="navRow"><span></span><button type="button" class="cta nc" data-next><span class="nx"><small>Siguiente paso</small><b><span class="nl">Datos de envío</span><span class="ns">Siguiente</span></b></span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="9 6 15 12 9 18"></polyline></svg></button></div>
 </div>
 <div role="group" aria-labelledby="st1" class="step" data-step="1" hidden>
   <div class="stepHead" id="st1"><span class="eyebrow">Paso 02 de 03</span><span class="stepTitle">Datos de envío</span></div>
@@ -5756,7 +5765,7 @@ body{font-family:var(--font-sans)}</style><meta charSet="utf-8"/><meta name="vie
     <label class="fld c6" for="f-shipping_postal_code"><span class="lab">Código postal de envío</span><input type="text" id="f-shipping_postal_code" name="shipping_postal_code" data-obj="0-1"><span class="err" aria-live="polite"></span></label>
     <label class="fld c6" for="f-shipping_city"><span class="lab">Ciudad de envío</span><input type="text" id="f-shipping_city" name="shipping_city" data-obj="0-1"><span class="err" aria-live="polite"></span></label>
   </div>
-  <div class="navRow"><button type="button" class="cta quiet" data-prev><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="15 6 9 12 15 18"></polyline></svg>Anterior</button><button type="button" class="cta nc" data-next><span class="nx"><small>Siguiente paso</small><b>Perfil y comunicaciones</b></span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="9 6 15 12 9 18"></polyline></svg></button></div>
+  <div class="navRow"><button type="button" class="cta quiet" data-prev><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="15 6 9 12 15 18"></polyline></svg>Anterior</button><button type="button" class="cta nc" data-next><span class="nx"><small>Siguiente paso</small><b><span class="nl">Perfil y comunicaciones</span><span class="ns">Siguiente</span></b></span><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polyline points="9 6 15 12 9 18"></polyline></svg></button></div>
 </div>
 <div role="group" aria-labelledby="st2" class="step" data-step="2" hidden>
   <div class="stepHead" id="st2"><span class="eyebrow">Paso 03 de 03</span><span class="stepTitle">Perfil y comunicaciones</span></div>
